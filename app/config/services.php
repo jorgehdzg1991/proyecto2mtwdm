@@ -5,7 +5,7 @@ use Phalcon\Mvc\View\Engine\Php as PhpEngine;
 use Phalcon\Mvc\Url as UrlResolver;
 use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
-use Phalcon\Flash\Direct as Flash;
+use Phalcon\Flash\Session as FlashSession;
 
 /**
  * Shared configuration service
@@ -60,7 +60,7 @@ $di->setShared('view', function () {
  * Register the session flash service with the Twitter Bootstrap classes
  */
 $di->set('flash', function () {
-    return new Flash([
+    return new FlashSession([
         'error'   => 'alert alert-danger',
         'success' => 'alert alert-success',
         'notice'  => 'alert alert-info',
@@ -76,4 +76,8 @@ $di->setShared('session', function () {
     $session->start();
 
     return $session;
+});
+
+$di->set('elements', function () {
+    return new Elements();
 });

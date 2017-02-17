@@ -38,9 +38,7 @@
 <div id="page-container">
 
     <nav id="page-leftbar" role="navigation">
-        <ul class="acc-menu" id="sidebar">
-            <li><a href="javascript:;"><i class="fa fa-home"></i> <span>Inicio</span></a></li>
-        </ul>
+        {{ elements.getLeftMenu(moduleName) }}
     </nav>
 
     <div id="page-rightbar">
@@ -49,7 +47,28 @@
 
     <div id="page-content">
         <div id="wrap">
-            {{ content() }}
+            <div id="page-heading">
+                <ol class="breadcrumb">
+                    <li><a href="javascript:;">Aquí</a></li>
+                    <li><a href="javascript:;">va</a></li>
+                    <li><a href="javascript:;">el</a></li>
+                    <li class="active">breadcrumb</li>
+                </ol>
+
+                <h1>Título del módulo</h1>
+
+                <div class="options">
+                    <div class="btn-toolbar">
+
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">{{ flash.output() }}</div>
+                </div>
+                {{ content() }}
+            </div>
         </div>
     </div>
 
