@@ -53,4 +53,26 @@ class Elements extends Component
 
         echo $html;
     }
+
+    public function getBreadcrumb($moduleName, $action = null)
+    {
+        $module = $this->_leftmenu[$moduleName];
+
+        $items = '';
+
+        if ($moduleName == 'Tablero de inicio') {
+            $items .= '<li class="active">Tablero de inicio</li>';
+        } else {
+            $items .= '<li><a href="index">Inicio</a></li>';
+
+            if (is_null($action)) {
+                $items .= '<li class="active">' . $moduleName . '</li>';
+            } else {
+                $items .= '<li><a href="' . $module['action'] . '">' . $moduleName . '</a></li>';
+                $items .= '<li class="active">' . $action . '</li>';
+            }
+        }
+
+        echo '<ol class="breadcrumb">' . $items . '</ol>';
+    }
 }

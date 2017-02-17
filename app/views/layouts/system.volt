@@ -48,14 +48,9 @@
     <div id="page-content">
         <div id="wrap">
             <div id="page-heading">
-                <ol class="breadcrumb">
-                    <li><a href="javascript:;">Aquí</a></li>
-                    <li><a href="javascript:;">va</a></li>
-                    <li><a href="javascript:;">el</a></li>
-                    <li class="active">breadcrumb</li>
-                </ol>
+                {{ elements.getBreadcrumb(moduleName) }}
 
-                <h1>Título del módulo</h1>
+                <h1>{{ moduleName }}</h1>
 
                 <div class="options">
                     <div class="btn-toolbar">
