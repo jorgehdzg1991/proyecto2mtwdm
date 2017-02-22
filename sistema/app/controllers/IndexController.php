@@ -2,7 +2,7 @@
 
 class IndexController extends SystemControllerBase
 {
-    public function initialize()
+    protected function initialize()
     {
         $this->moduleName = 'Tablero de inicio';
         $this->tag->setTitle($this->moduleName);
