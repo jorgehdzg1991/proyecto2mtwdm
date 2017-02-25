@@ -9,6 +9,8 @@
 
         {{ stylesheet_link('css/styles.css') }}
         {{ stylesheet_link('http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600') }}
+
+        {{ resources.loadCssLinks(moduleCssLinks) }}
     </head>
     <body class=" ">
         <!-- Aquí se renderiza el contenido de la aplicación -->
@@ -21,6 +23,9 @@
         {{ javascript_include('js/jquery.cookie.js') }}
         {{ javascript_include('js/jquery.nicescroll.min.js') }}
         {{ javascript_include('js/placeholdr.js') }}
+
+        {{ resources.loadJavaScripts(moduleJavaScripts) }}
+
         {{ javascript_include('js/application.js') }}
     </body>
 </html>

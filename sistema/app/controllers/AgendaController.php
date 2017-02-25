@@ -1,10 +1,16 @@
 <?php
 
-class IndexController extends SystemControllerBase
+/**
+ * Created by PhpStorm.
+ * User: jorge
+ * Date: 24/02/2017
+ * Time: 09:43 AM
+ */
+class AgendaController extends SystemControllerBase
 {
     protected function initialize()
     {
-        $this->moduleName = 'Tablero de inicio';
+        $this->moduleName = 'Mi agenda';
         $this->tag->setTitle($this->moduleName);
         parent::initialize();
     }
@@ -24,4 +30,3 @@ class IndexController extends SystemControllerBase
 
     }
 }
-

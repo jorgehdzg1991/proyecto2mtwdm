@@ -63,7 +63,7 @@ class Elements extends Component
         if ($moduleName == 'Tablero de inicio') {
             $items .= '<li class="active">Tablero de inicio</li>';
         } else {
-            $items .= '<li><a href="index">Inicio</a></li>';
+            $items .= '<li><a href="index">Tablero de inicio</a></li>';
 
             if (is_null($action)) {
                 $items .= '<li class="active">' . $moduleName . '</li>';
