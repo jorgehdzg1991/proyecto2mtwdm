@@ -69,7 +69,7 @@ class Elements extends Component
             if (is_null($action)) {
                 $items .= '<li class="active">' . $moduleName . '</li>';
             } else {
-                $items .= '<li>' . Phalcon\Tag::linkTo($module['action'], $moduleName) . '</li>';
+                $items .= '<li>' . Phalcon\Tag::linkTo($module['action'], $moduleName   ) . '</li>';
                 $items .= '<li class="active">' . $action . '</li>';
             }
         }

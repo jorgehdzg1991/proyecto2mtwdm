@@ -12,20 +12,25 @@ class AgendaController extends SystemControllerBase
     {
         $this->moduleName = 'Mi agenda';
         $this->tag->setTitle($this->moduleName);
+
+        $this->moduleCssLinks = [
+            'plugins/fullcalendar/fullcalendar.css'
+        ];
+
+        $this->moduleJavaScripts = [
+            'plugins/fullcalendar/fullcalendar.min.js',
+            'js/modules/agenda.js'
+        ];
+
         parent::initialize();
     }
 
-    protected function defineModuleCssLinks()
-    {
-        parent::defineModuleCssLinks();
-    }
-
-    protected function defineModuleJavaScripts()
-    {
-        parent::defineModuleJavaScripts();
-    }
-
     public function indexAction()
+    {
+
+    }
+
+    public function agendarcitaAction()
     {
 
     }
