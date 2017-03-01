@@ -14,17 +14,18 @@ abstract class SystemControllerBase extends Controller
         $this->view->setTemplateAfter('system');
 
         $this->view->moduleName = $this->moduleName;
+        $this->view->action = null;
 
-        $this->defineModuleCssLinks();
-        $this->defineModuleJavaScripts();
+        $this->loadModuleCssLinks();
+        $this->loadModuleJavaScripts();
     }
 
-    protected function defineModuleCssLinks()
+    private function loadModuleCssLinks()
     {
         $this->view->moduleCssLinks = $this->moduleCssLinks;
     }
 
-    protected function defineModuleJavaScripts()
+    private function loadModuleJavaScripts()
     {
         $this->view->moduleJavaScripts = $this->moduleJavaScripts;
     }

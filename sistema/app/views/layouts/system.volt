@@ -48,7 +48,7 @@
     <div id="page-content">
         <div id="wrap">
             <div id="page-heading">
-                {{ elements.getBreadcrumb(moduleName) }}
+                {{ elements.getBreadcrumb(moduleName, action) }}
 
                 <h1>{{ moduleName }}</h1>
 

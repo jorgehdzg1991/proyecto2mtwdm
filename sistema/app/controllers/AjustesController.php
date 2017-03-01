@@ -12,21 +12,12 @@ class AjustesController extends SystemControllerBase
     {
         $this->moduleName = 'Ajustes de cuenta y horario';
         $this->tag->setTitle($this->moduleName);
-        parent::initialize();
-    }
 
-    protected function defineModuleCssLinks()
-    {
         $this->moduleCssLinks = [
             'plugins/form-select2/select2.css',
             'plugins/form-multiselect/css/multi-select.css'
         ];
 
-        parent::defineModuleCssLinks();
-    }
-
-    protected function defineModuleJavaScripts()
-    {
         $this->moduleJavaScripts = [
             'plugins/form-select2/select2.min.js',
             'plugins/form-multiselect/js/jquery.multi-select.min.js',
@@ -34,7 +25,7 @@ class AjustesController extends SystemControllerBase
             'js/modules/ajustes.js'
         ];
 
-        parent::defineModuleJavaScripts();
+        parent::initialize();
     }
 
     public function indexAction()
@@ -80,5 +71,30 @@ class AjustesController extends SystemControllerBase
 
         $this->view->horario = $horario;
         $this->view->cuenta = $cuenta;
+    }
+
+    public function formacionacademicaAction()
+    {
+        $this->view->action = "Formación Académica";
+        $this->view->formacion = [
+            [
+                'titulo' => 'Médico Cirujano',
+                'universidad' => 'Universidad Autónoma de San Luis Potosí',
+                'anio' => 1981,
+                'cedula' => '123456789'
+            ],
+            [
+                'titulo' => 'Pediatría',
+                'universidad' => 'Universidad de Guanajuato',
+                'anio' => 1984,
+                'cedula' => '987654321'
+            ],
+            [
+                'titulo' => 'Neonatología',
+                'universidad' => 'Universidad de Guanajuato',
+                'anio' => 1987,
+                'cedula' => '423569871'
+            ]
+        ];
     }
 }

@@ -10,7 +10,7 @@ class Elements extends Component
             'icon' => 'fa fa-home'
         ],
         'Ajustes de cuenta y horario' => [
-            'action' => 'ajustes',
+            'action' => 'ajustes/index',
             'icon' => 'fa fa-cog'
         ],
         'Mi agenda' => [
@@ -63,12 +63,13 @@ class Elements extends Component
         if ($moduleName == 'Tablero de inicio') {
             $items .= '<li class="active">Tablero de inicio</li>';
         } else {
-            $items .= '<li><a href="index">Tablero de inicio</a></li>';
+
+            $items .= '<li>' . Phalcon\Tag::linkTo('index', 'Tablero de inicio') . '</li>';
 
             if (is_null($action)) {
                 $items .= '<li class="active">' . $moduleName . '</li>';
             } else {
-                $items .= '<li><a href="' . $module['action'] . '">' . $moduleName . '</a></li>';
+                $items .= '<li>' . Phalcon\Tag::linkTo($module['action'], $moduleName) . '</li>';
                 $items .= '<li class="active">' . $action . '</li>';
             }
         }
