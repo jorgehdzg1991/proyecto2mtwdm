@@ -46,7 +46,11 @@ class Elements extends Component
             $icon = $properties['icon'];
             $active = $key == $moduleName ? ' class="active"' : '';
 
-            $html .= '<li' . $active . '><a href="' . $action . '"><i class="' . $icon . '"></i> <span>' . $key . '</span></a></li>';
+            $text = '<i class="' . $icon . '"></i> <span>' . $key . '</span>';
+
+            $anchor = Phalcon\Tag::linkTo($action, $text);
+
+            $html .= '<li' . $active . '>' . $anchor . '</li>';
         }
 
         $html .= '</ul>';
