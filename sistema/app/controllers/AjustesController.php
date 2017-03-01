@@ -97,4 +97,37 @@ class AjustesController extends SystemControllerBase
             ]
         ];
     }
+
+    public function formularionuevotituloAction()
+    {
+        $this->view->disable();
+
+        echo '<div class="row" style="margin-top: 25px">
+    <div class="col-xs-12">
+        <h3>Agregar nuevo título académico</h3>
+        <hr>
+        <div class="form-group">
+            <label for="txtTitulo">Titulo obtenido</label>
+            <input type="text" id="txtTitulo" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="txtUniversidad">Universidad</label>
+            <input type="text" id="txtUniversidad" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="txtAnio">Año</label>
+            <input type="number" id="txtAnio" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="txtCedula">Número de cédula profesional</label>
+            <input type="text" id="txtCedula" class="form-control">
+        </div>
+        <hr>
+        <div class="btn-toolbar text-right">
+            <button class="btn btn-default btn-sm" onclick="$(\'body\').toggleClass(\'show-rightbar\')"><i class="fa fa-ban"></i> Cancelar</button>
+            <button class="btn btn-primary btn-sm"><i class="fa fa-check"></i> Agregar</button>
+        </div>
+    </div>
+</div>';
+    }
 }
