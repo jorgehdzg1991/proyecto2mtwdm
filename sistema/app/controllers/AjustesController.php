@@ -73,61 +73,37 @@ class AjustesController extends SystemControllerBase
         $this->view->cuenta = $cuenta;
     }
 
-    public function formacionacademicaAction()
-    {
-        $this->view->action = "Formación Académica";
-        $this->view->formacion = [
-            [
-                'titulo' => 'Médico Cirujano',
-                'universidad' => 'Universidad Autónoma de San Luis Potosí',
-                'anio' => 1981,
-                'cedula' => '123456789'
-            ],
-            [
-                'titulo' => 'Pediatría',
-                'universidad' => 'Universidad de Guanajuato',
-                'anio' => 1984,
-                'cedula' => '987654321'
-            ],
-            [
-                'titulo' => 'Neonatología',
-                'universidad' => 'Universidad de Guanajuato',
-                'anio' => 1987,
-                'cedula' => '423569871'
-            ]
-        ];
-    }
-
     public function formularionuevotituloAction()
     {
         $this->view->disable();
 
-        echo '<div class="row" style="margin-top: 25px">
-    <div class="col-xs-12">
-        <h3>Agregar nuevo título académico</h3>
-        <hr>
-        <div class="form-group">
-            <label for="txtTitulo">Titulo obtenido</label>
-            <input type="text" id="txtTitulo" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="txtUniversidad">Universidad</label>
-            <input type="text" id="txtUniversidad" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="txtAnio">Año</label>
-            <input type="number" id="txtAnio" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="txtCedula">Número de cédula profesional</label>
-            <input type="text" id="txtCedula" class="form-control">
-        </div>
-        <hr>
-        <div class="btn-toolbar text-right">
-            <button class="btn btn-default btn-sm" onclick="$(\'body\').toggleClass(\'show-rightbar\')"><i class="fa fa-ban"></i> Cancelar</button>
-            <button class="btn btn-primary btn-sm"><i class="fa fa-check"></i> Agregar</button>
-        </div>
-    </div>
-</div>';
+        echo '
+        <div class="row" style="margin-top: 25px">
+            <div class="col-xs-12">
+                <h3>Agregar nuevo título académico</h3>
+                <hr>
+                <div class="form-group">
+                    <label for="txtTitulo">Titulo obtenido</label>
+                    <input type="text" id="txtTitulo" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="txtUniversidad">Universidad</label>
+                    <input type="text" id="txtUniversidad" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="txtAnio">Año</label>
+                    <input type="number" id="txtAnio" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="txtCedula">Número de cédula profesional</label>
+                    <input type="text" id="txtCedula" class="form-control">
+                </div>
+                <hr>
+                <div class="btn-toolbar text-right">
+                    <button class="btn btn-default btn-sm" onclick="$(\'body\').toggleClass(\'show-rightbar\')"><i class="fa fa-ban"></i> Cancelar</button>
+                    <button class="btn btn-primary btn-sm"><i class="fa fa-check"></i> Agregar</button>
+                </div>
+            </div>
+        </div>';
     }
 }

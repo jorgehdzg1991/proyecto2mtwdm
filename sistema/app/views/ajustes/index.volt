@@ -1,4 +1,5 @@
 {{ hidden_field('hdnLocation', 'value': 'index') }}
+{{ hidden_field('hdnUrlFormularioNuevo', 'value': 'ajustes/formularionuevotitulo') }}
 <div class="row">
     <div class="col-xs-12">
          <div class="panel panel-primary">
@@ -71,13 +72,14 @@
                                 <div class="col-sm-8 col-sm-offset-3">
                                     {{ hidden_field('hdnFormacion', 'value': cuenta['formacion'] | json_encode) }}
                                     <div class="table-responsive">
-                                        <table class="table table-striped">
+                                        <table class="table table-striped" style="margin-bottom:0;">
                                             <thead>
                                             <tr>
                                                 <th>Título obtenido</th>
                                                 <th>Universidad</th>
                                                 <th>Año</th>
                                                 <th>Cédula profesional</th>
+                                                <th>Acciones</th>
                                             </tr>
                                             </thead>
                                             <tbody id="tblFormacion"></tbody>
@@ -86,9 +88,9 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-sm-6 col-sm-offset-3">
-                                    <div class="btn-toolbar">
-                                        {{ link_to('ajustes/formacionacademica', 'Editar mi formación académica', 'class': 'btn btn-default btn-sm') }}
+                                <div class="col-sm-8 col-sm-offset-3">
+                                    <div class="btn-toolbar text-right">
+                                        <button class="btn btn-default btn-sm" onclick="$('body').toggleClass('show-rightbar')"><i class="fa fa-plus"></i> Agregar nuevo título</button>
                                     </div>
                                 </div>
                             </div>
