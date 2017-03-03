@@ -1,19 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="utf-8">
-    <title>Planner Doc</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Proyecto final">
-    <meta name="author" content="Tecnologías WEB">
-
-    {{ stylesheet_link('css/styles.min.css?=113') }}
-    {{ stylesheet_link('http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600') }}
-
-</head>
-<body class="focusedform">
-
 <div class="verticalcenter">
     <a href="">{{ image('img/logo-big.png', 'alt': 'logo', 'class': 'brand') }}</a>
     <div class="panel panel-primary">
@@ -39,6 +23,3 @@
 
     </div>
 </div>
-
-</body>
-</html>
