@@ -37,7 +37,7 @@ class AjustesController extends SystemControllerBase
             'jueves' => '11:00 AM a 2:30 PM - 5:00 PM a 8:30 PM',
             'viernes' => '11:00 AM a 2:30 PM - 5:00 PM a 8:30 PM',
             'sabado' => '11:00 AM a 2:30 PM',
-            'domingo' => 'No labora'
+            'domingo' => 'No laboral'
         ];
 
         $cuenta = [

@@ -6,6 +6,14 @@ class IndexController extends SystemControllerBase
     {
         $this->moduleName = 'Tablero de inicio';
         $this->tag->setTitle($this->moduleName);
+
+        $this->moduleCssLinks = [
+            'plugins//.css'
+        ];
+        $this->moduleJavaScripts = [
+            'plugins//.min.js'
+        ];
+
         parent::initialize();
     }
 
