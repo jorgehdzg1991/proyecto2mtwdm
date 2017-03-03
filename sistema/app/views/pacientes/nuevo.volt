@@ -36,25 +36,25 @@
                     </div>
                     <div class="form-group">
                         <label for="selSexo" class="control-label col-sm-3">Sexo:</label>
-                        <div class="col-xs-12 col-sm-3">
+                        <div class="col-xs-12 col-md-3">
                             {{ select('selSexo', sexo, 'using': ['valor', 'texto'], 'style': 'width:100%') }}
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="txtEdad" class="control-label col-sm-3">Edad:</label>
-                        <div class="col-xs-12 col-sm-2">
+                        <div class="col-xs-12 col-md-2">
                             {{ numeric_field('txtEdad', 'class': 'form-control') }}
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="txtPeso" class="control-label col-sm-3">Peso (kg):</label>
-                        <div class="col-xs-12 col-sm-2">
+                        <div class="col-xs-12 col-md-2">
                             {{ numeric_field('txtPeso', 'class': 'form-control') }}
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="txtEstatura" class="control-label col-sm-3">Estatura (cm):</label>
-                        <div class="col-xs-12 col-sm-2">
+                        <div class="col-xs-12 col-md-2">
                             {{ numeric_field('txtEstatura', 'class': 'form-control') }}
                         </div>
                     </div>
