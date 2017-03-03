@@ -15,16 +15,6 @@ class ContactosController extends SystemControllerBase
         parent::initialize();
     }
 
-    protected function defineModuleCssLinks()
-    {
-        parent::defineModuleCssLinks();
-    }
-
-    protected function defineModuleJavaScripts()
-    {
-        parent::defineModuleJavaScripts();
-    }
-
     public function indexAction()
     {
 

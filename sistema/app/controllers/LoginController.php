@@ -1,15 +1,17 @@
 <?php
 
-class LoginController extends SystemControllerBase
+class LoginController extends Phalcon\Mvc\Controller
 {
+    private $moduleCssLinks;
+    private $moduleJavaScripts;
+
     protected function initialize()
     {
-        $this->moduleName = 'Login Doctor';
-        $this->tag->setTitle($this->moduleName);
+        $this->view->moduleCssLinks = [];
+        $this->view->moduleJavaScripts = [];
 
-        parent::initialize();
+        $this->tag->setTitle('Login');
     }
-
 
     public function indexAction()
     {

@@ -8,16 +8,14 @@
     <meta name="description" content="Proyecto final">
     <meta name="author" content="Tecnologías WEB">
 
-    <!-- <link href="assets/less/styles.less" rel="stylesheet/less" media="all"> -->
-    <link rel="stylesheet" href="assets/css/styles.min.css?=113">
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
+    {{ stylesheet_link('css/styles.min.css?=113') }}
+    {{ stylesheet_link('http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600') }}
 
-    <!-- <script type="text/javascript" src="assets/js/less.js"></script> -->
 </head>
 <body class="focusedform">
 
 <div class="verticalcenter">
-    <a href=""><img src="sistema/public/img/logo-big.png" alt="Logo" class="brand" /></a>
+    <a href="">{{ image('img/logo-big.png', 'alt': 'logo', 'class': 'brand') }}</a>
     <div class="panel panel-primary">
         <div class="panel-body">
             <h4 class="text-center" style="margin-bottom: 25px;">Bienvenido</h4>
