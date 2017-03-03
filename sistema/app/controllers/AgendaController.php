@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: jorge
- * Date: 24/02/2017
- * Time: 09:43 AM
- */
 class AgendaController extends SystemControllerBase
 {
     protected function initialize()
@@ -14,11 +8,15 @@ class AgendaController extends SystemControllerBase
         $this->tag->setTitle($this->moduleName);
 
         $this->moduleCssLinks = [
-            'plugins/fullcalendar/fullcalendar.css'
+            'plugins/fullcalendar/fullcalendar.css',
+            'plugins/codeprettifier/prettify.css',
+            'plugins/form-toggle/toggles.css'
         ];
 
         $this->moduleJavaScripts = [
             'plugins/fullcalendar/fullcalendar.min.js',
+            'plugins/codeprettifier/prettify.js',
+            'plugins/form-toggle/toggles.min.js',
             'js/modules/agenda.js'
         ];
 
@@ -27,6 +25,15 @@ class AgendaController extends SystemControllerBase
 
     public function indexAction()
     {
+        $registro = [
+            'lunes' => '11:00 AM a 2:30 PM - 5:00 PM a 8:30 PM',
+            'martes' => '11:00 AM a 2:30 PM - 5:00 PM a 8:30 PM',
+            'miercoles' => '11:00 AM a 2:30 PM',
+            'jueves' => '11:00 AM a 2:30 PM - 5:00 PM a 8:30 PM',
+            'viernes' => '11:00 AM a 2:30 PM - 5:00 PM a 8:30 PM',
+            'sabado' => '11:00 AM a 2:30 PM',
+            'domingo' => 'No labora'
+        ];
 
     }
 
