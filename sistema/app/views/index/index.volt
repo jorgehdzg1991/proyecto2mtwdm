@@ -74,31 +74,31 @@
 
                                                             <td>cranston</td>
                                                             <td class="hidden-xs">cranstonb@gnail.com</td>
-                                                            <td>Destista</td>
+                                                            <td>Dentista</td>
                                                         </tr>
                                                         <tr>
 
                                                             <td>aaron</td>
                                                             <td class="hidden-xs">ppaul@lime.com</td>
-                                                            <td>Destista</td>
+                                                            <td>Pediatra</td>
                                                         </tr>
                                                         <tr>
 
                                                             <td>norris</td>
                                                             <td class="hidden-xs">j.norris@gnail.com</td>
-                                                            <td>Destista</td>
+                                                            <td>Quiropractico</td>
                                                         </tr>
                                                         <tr>
 
                                                             <td>gunner</td>
                                                             <td class="hidden-xs">gunner@outluk.com</td>
-                                                            <td>Destista</td>
+                                                            <td>Traumatologo</td>
                                                         </tr>
                                                         <tr>
 
                                                             <td>mrford</td>
                                                             <td class="hidden-xs">fordm@gnail.com</td>
-                                                            <td>General</td>
+                                                            <td>Oftalmologo</td>
                                                         </tr>
                                                         <tr>
 
@@ -180,3 +180,4 @@
                                                 </div>
                                             </div>
             </div>
+</div>
