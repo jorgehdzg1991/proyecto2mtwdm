@@ -25,20 +25,6 @@ class AgendaController extends SystemControllerBase
 
     public function indexAction()
     {
-        $registro = [
-            'lunes' => '11:00 AM a 2:30 PM - 5:00 PM a 8:30 PM',
-            'martes' => '11:00 AM a 2:30 PM - 5:00 PM a 8:30 PM',
-            'miercoles' => '11:00 AM a 2:30 PM',
-            'jueves' => '11:00 AM a 2:30 PM - 5:00 PM a 8:30 PM',
-            'viernes' => '11:00 AM a 2:30 PM - 5:00 PM a 8:30 PM',
-            'sabado' => '11:00 AM a 2:30 PM',
-            'domingo' => 'No labora'
-        ];
-
-    }
-
-    public function agendarcitaAction()
-    {
 
     }
 }
