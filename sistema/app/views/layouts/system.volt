@@ -10,23 +10,21 @@
     <ul class="nav navbar-nav pull-right toolbar">
         <li class="dropdown">
             <a href="#" class="dropdown-toggle username" data-toggle="dropdown">
-                <span class="hidden-xs">John McCartney <i class="fa fa-caret-down"></i></span>
+                <span class="hidden-xs">Juan Pérez <i class="fa fa-caret-down"></i></span>
                 {{ image('img/avatar/dangerfield.png', 'alt': 'Jeff Dangerfield') }}
             </a>
             <ul class="dropdown-menu userinfo arrow">
                 <li class="username">
                     <a href="#">
                         <div class="pull-left">{{ image('img/avatar/dangerfield.png', 'class': 'userimg', 'alt': 'Jeff Dangerfield') }}</div>
-                        <div class="pull-right"><h5>Howdy, John!</h5><small>Logged in as <span>john275</span></small></div>
+                        <div class="pull-right"><h5>Hola juan!</h5><small>Iniciaste sesión como <span>juan</span></small></div>
                     </a>
                 </li>
                 <li class="userlinks">
                     <ul class="dropdown-menu">
-                        <li><a href="#">Edit Profile <i class="pull-right fa fa-pencil"></i></a></li>
-                        <li><a href="#">Account <i class="pull-right fa fa-cog"></i></a></li>
-                        <li><a href="#">Help <i class="pull-right fa fa-question-circle"></i></a></li>
+                        <li>{{ link_to('ajustes', 'Ajustes <i class="pull-right fa fa-user"></i>') }}</li>
                         <li class="divider"></li>
-                        <li><a href="#" class="text-right">Sign Out</a></li>
+                        <li>{{ link_to('login', 'Salir <i class="pull-right fa fa-sign-out"></i>') }}</li>
                     </ul>
                 </li>
             </ul>

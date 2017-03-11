@@ -16,7 +16,7 @@ class AgendaController extends SystemControllerBase
         $this->moduleJavaScripts = [
             'plugins/fullcalendar/fullcalendar.min.js',
             'plugins/codeprettifier/prettify.js',
-            'plugins/form-toggle/toggles.min.js',
+            'plugins/form-toggle/toggle.min.js',
             'js/modules/agenda.js'
         ];
 

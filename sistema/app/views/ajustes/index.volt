@@ -129,7 +129,6 @@
                         <div class="alert alert-info">
                             <i class="fa fa-info-circle"></i>
                             Estos son los horarios actualmente configurados.
-                            {{ link_to('ajustes/configurarhorario', 'Cambiar configuración de horario', 'class': 'btn btn-primary btn-sm pull-right') }}
                         </div>
                         <div class="form-horizontal">
                             <div class="form-group">
