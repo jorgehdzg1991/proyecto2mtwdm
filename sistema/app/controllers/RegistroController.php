@@ -1,22 +1,22 @@
 <?php
 
-class RegistroController extends SystemControllerBase
+class RegistroController extends Phalcon\Mvc\Controller
 {
+    private $moduleName;
+    private $moduleCssLinks;
+    private $moduleJavaScripts;
+
     protected function initialize()
     {
         $this->moduleName = 'Registro';
         $this->tag->setTitle($this->moduleName);
 
-        $this->moduleCssLinks = [
-            'plugins/fullcalendar/fullcalendar.css'
-        ];
+        $this->moduleCssLinks = [];
 
-        $this->moduleJavaScripts = [
-            'plugins/fullcalendar/fullcalendar.min.js',
-            'js/modules/agenda.js'
-        ];
+        $this->moduleJavaScripts = [];
 
-        parent::initialize();
+        $this->view->moduleCssLinks = $this->moduleCssLinks;
+        $this->view->moduleJavaScripts = $this->moduleJavaScripts;
     }
 
     public function indexAction()
