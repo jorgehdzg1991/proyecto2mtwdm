@@ -7,6 +7,7 @@ use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
 use Phalcon\Flash\Session as FlashSession;
+use Phalcon\Mvc\Model\Manager as ModelsManager;
 
 /**
  * Shared configuration service
@@ -88,6 +89,16 @@ $di->setShared('db', function () {
 $di->setShared('modelsMetadata', function () {
     return new MetaDataAdapter();
 });
+
+/**
+ * Obtiene el administrador del los modelos para ejecutar consultas PSQL
+ */
+$di->set(
+    "modelsManager",
+    function() {
+        return new ModelsManager();
+    }
+);
 
 /**
  * Register the session flash service with the Twitter Bootstrap classes

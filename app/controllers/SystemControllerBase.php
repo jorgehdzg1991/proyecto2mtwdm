@@ -10,6 +10,14 @@ abstract class SystemControllerBase extends Controller
 
     protected function initialize()
     {
+        if (!$this->validateSessionAuth()) {
+            $this->flash->error('Debes iniciar sesión para ver este contenido');
+
+            $this->response->redirect('login');
+        } else {
+            $this->view->auth = $this->session->get('auth');
+        }
+
         $this->tag->prependTitle('MTWDM | ');
         $this->view->setTemplateAfter('system');
 
@@ -28,5 +36,10 @@ abstract class SystemControllerBase extends Controller
     private function loadModuleJavaScripts()
     {
         $this->view->moduleJavaScripts = $this->moduleJavaScripts;
+    }
+
+    private function validateSessionAuth()
+    {
+        return $this->session->has('auth');
     }
 }
