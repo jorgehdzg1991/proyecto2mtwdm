@@ -83,7 +83,7 @@ class PacientesController extends SystemControllerBase
             $this->response->redirect('pacientes/index');
         } else {
             $this->flash->error('No se pudo crear el registro de paciente');
-            $this->response->redirect('pacientes/nuevo');
+            $this->dispatcher->forward(['controller' => 'pacientes', 'action' => 'nuevo']);
         }
     }
 
@@ -158,11 +158,11 @@ class PacientesController extends SystemControllerBase
 
         if ($paciente == false) {
             $this->flash->error('No pudo guardarse el registro de paciente debido a un error');
+            $this->dispatcher->forward(['controller' => 'pacientes', 'action' => 'editar']);
         } else {
             $this->flash->success('Paciente editado correctamente');
+            $this->response->redirect("pacientes/editar/{$datos['id']}");
         }
-
-        $this->response->redirect("pacientes/editar/{$datos['id']}");
     }
 
     /**

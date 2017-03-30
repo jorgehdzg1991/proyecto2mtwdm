@@ -35,6 +35,23 @@ class LoginController extends PageControllerBase
         $login = $this->request->getPost('login');
         $passwd = md5($this->request->getPost('passwd'));
 
+        $this->iniciarSesion($login, $passwd);
+    }
+
+    /**
+     * Termina la sesión en el servidor
+     */
+    public function endAction()
+    {
+        $this->unsetSessionAuth();
+
+        $this->flash->success('¡Hasta pronto!');
+
+        $this->response->redirect('login/index');
+    }
+
+    public function iniciarSesion($login, $passwd)
+    {
         $sql = "
         SELECT
           d.id,
@@ -57,7 +74,7 @@ class LoginController extends PageControllerBase
 
         if (!isset($result[0])) {
             $this->flash->error('Error de usuario o password');
-            $this->response->redirect('login/index');
+            $this->dispatcher->forward(['controller' => 'login', 'action' => 'index']);
 
             return;
         }
@@ -69,18 +86,6 @@ class LoginController extends PageControllerBase
         $this->flash->success('Bienvenido al sistema');
 
         $this->response->redirect('index');
-    }
-
-    /**
-     * Termina la sesión en el servidor
-     */
-    public function endAction()
-    {
-        $this->unsetSessionAuth();
-
-        $this->flash->success('¡Hasta pronto!');
-
-        $this->response->redirect('login/index');
     }
 
     /**
