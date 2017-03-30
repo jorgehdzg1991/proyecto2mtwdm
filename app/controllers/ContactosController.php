@@ -30,51 +30,71 @@ class ContactosController extends SystemControllerBase
 
     public function indexAction()
     {
-        $doctores = [
-            [
-                'nombre' => 'Dr. Simi',
-                'especialidad' => 'Lo mismo pero más barato',
-                'telefono' => '(477) 123 4567',
-                'correo' => 'similar@test.com'
-            ],
-            [
-                'nombre' => 'Dr. Otro Fulano',
-                'especialidad' => 'Traumatología y ortopedia',
-                'telefono' => '(477) 123 6987',
-                'correo' => 'fulano.doctor@test.com'
-            ],
-            [
-                'nombre' => 'Dr. Patch Adams',
-                'especialidad' => 'Oncología',
-                'telefono' => '(477) 9874563',
-                'correo' => 'patch.adams@test.com'
-            ]
-        ];
+        $doctores_vinculados = $this->buscarDoctoresVinculados();
+        $doctores = $this->buscarTodosDoctores();
 
+        $this->view->doctores_vinculados = $doctores_vinculados;
         $this->view->doctores = $doctores;
     }
 
-    public function nuevoAction()
+    private function buscarDoctoresVinculados()
     {
-        $especialidades = [
-            [
-                'valor' => '0',
-                'texto' => 'Pediatría'
-            ],
-            [
-                'valor' => '1',
-                'texto' => 'Neonatología'
-            ],
-            [
-                'valor' => '2',
-                'texto' => 'Neurología'
-            ],
-            [
-                'valor' => '3',
-                'texto' => 'Cardiología'
-            ]
-        ];
+        $sql = "
+        SELECT
+          d.id,
+          p.nombre,
+          p.apellido_paterno,
+          p.apellido_materno,
+          d.especialidad,
+          p.telefono,
+          p.correo
+        FROM Doctores d
+        INNER JOIN Personas p ON d.personas_id = p.id
+        INNER JOIN CarteraColaboradores c ON d.id = c.colaboradores_id
+        WHERE c.doctores_id = {$this->auth['id']} 
+        AND p.estatus = 1
+        AND c.estatus = 1";
 
-        $this->view->especialidades = $especialidades;
+        $result = $this->modelsManager->executeQuery($sql);
+
+        $doctores_vinculados = [];
+
+        foreach ($result as $doctor) {
+            $doctores_vinculados[] = $doctor;
+        }
+
+        return $doctores_vinculados;
+    }
+
+    private function buscarTodosDoctores() {
+        $sql = "
+        SELECT
+          d.id,
+          p.nombre,
+          p.apellido_paterno,
+          p.apellido_materno,
+          d.especialidad,
+          p.telefono,
+          p.correo
+        FROM Doctores d
+        INNER JOIN Personas p ON d.personas_id = p.id
+        WHERE d.id <> {$this->auth['id']}
+        AND d.id NOT IN(
+          SELECT
+            c.colaboradores_id
+          FROM CarteraColaboradores c
+          WHERE c.estatus = 1
+        )
+        AND p.estatus = 1";
+
+        $result = $this->modelsManager->executeQuery($sql);
+
+        $doctores = [];
+
+        foreach ($result as $doctor) {
+            $doctores[] = $doctor;
+        }
+
+        return $doctores;
     }
 }
