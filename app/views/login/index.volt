@@ -1,8 +1,5 @@
-<div class="verticalcenter">
+<div id="contenedor-modulo">
     <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
-        <div class="text-center" style="margin-bottom: 15px;">
-            {{ image('img/logo-big.png', 'alt': 'logo', 'class': 'brand', 'style': 'text-align: center') }}
-        </div>
         <div class="panel panel-primary">
             {{ form('login/start', 'class': 'form-horizontal', 'style': 'margin-bottom: 0px !important;') }}
             <div class="panel-body">

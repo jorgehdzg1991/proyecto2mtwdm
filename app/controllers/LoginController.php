@@ -3,26 +3,21 @@
 /**
  * Controlador del módulo de Login
  */
-class LoginController extends Phalcon\Mvc\Controller
+class LoginController extends PageControllerBase
 {
-    /**
-     * @var array Conjunto de archivos Css del módulo
-     */
-    private $moduleCssLinks;
-    /**
-     * @var array Conjunto de archivos JavaScript del módulo
-     */
-    private $moduleJavaScripts;
-
     /**
      * Inicializa el módulo
      */
     protected function initialize()
     {
-        $this->view->moduleCssLinks = [];
-        $this->view->moduleJavaScripts = [];
+        $this->moduleCssLinks = [
+            'css/no-sistema.css'
+        ];
+        $this->moduleJavaScripts = [];
 
         $this->tag->setTitle('MTWDM | Login');
+
+        parent::initialize();
     }
 
     /**

@@ -1,0 +1,25 @@
+body {
+    padding-top: 0 !important;
+    height: auto !important;
+}
+
+nav.navbar {
+    background-color: #313338;
+}
+
+#contenedor-modulo {
+    margin-top: 75px;
+}
+
+button.navbar-toggle {
+    margin-top: 8px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #e6e6e6;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: #fff;
+    font-weight: bold;
+}
