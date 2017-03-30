@@ -2,12 +2,34 @@
 
 use Phalcon\Mvc\Controller;
 
+/**
+ * Base de todos los controladores del sistema
+ */
 abstract class SystemControllerBase extends Controller
 {
+    /**
+     * @var string Nombre del módulo a cargar
+     */
     protected $moduleName;
+
+    /**
+     * @var array Conjunto de Css a cargar en el módulo
+     */
     protected $moduleCssLinks;
+
+    /**
+     * @var array Conjunto de JavaScripts a cargar en el módulo
+     */
     protected $moduleJavaScripts;
 
+    /**
+     * @var array Datos de sesión del usuario
+     */
+    protected $auth;
+
+    /**
+     * Inicializa los módulos del sistema
+     */
     protected function initialize()
     {
         if (!$this->validateSessionAuth()) {
@@ -15,7 +37,8 @@ abstract class SystemControllerBase extends Controller
 
             $this->response->redirect('login');
         } else {
-            $this->view->auth = $this->session->get('auth');
+            $this->auth = $this->session->get('auth');
+            $this->view->auth = $this->auth;
         }
 
         $this->tag->prependTitle('MTWDM | ');
@@ -28,16 +51,26 @@ abstract class SystemControllerBase extends Controller
         $this->loadModuleJavaScripts();
     }
 
+    /**
+     * Pasa a la vista las ligas a los Css del módulo
+     */
     private function loadModuleCssLinks()
     {
         $this->view->moduleCssLinks = $this->moduleCssLinks;
     }
 
+    /**
+     * Pasa a la vista las ligas a los JavaScripts del módulo
+     */
     private function loadModuleJavaScripts()
     {
         $this->view->moduleJavaScripts = $this->moduleJavaScripts;
     }
 
+    /**
+     * Determina si está iniciada la sesión o no
+     * @return bool Estatus de la sesión
+     */
     private function validateSessionAuth()
     {
         return $this->session->has('auth');

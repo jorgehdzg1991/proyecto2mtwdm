@@ -39,7 +39,7 @@
         {{ elements.getLeftMenu(moduleName) }}
     </nav>
 
-    <div id="page-rightbar">
+    <div id="page-rightbar" style="overflow-y: scroll !important;">
 
     </div>
 

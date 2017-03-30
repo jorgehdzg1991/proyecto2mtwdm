@@ -55,6 +55,13 @@ class Pacientes extends \Phalcon\Mvc\Model
     protected $nacionalidad;
 
     /**
+     *
+     * @var string
+     * @Column(type="string", nullable=true)
+     */
+    protected $historia_clinica;
+
+    /**
      * Method to set the value of field id
      *
      * @param integer $id
@@ -146,6 +153,19 @@ class Pacientes extends \Phalcon\Mvc\Model
     }
 
     /**
+     * Method to set the value of field historia_clinica
+     *
+     * @param string $historia_clinica
+     * @return $this
+     */
+    public function setHistoriaClinica($historia_clinica)
+    {
+        $this->historia_clinica = $historia_clinica;
+
+        return $this;
+    }
+
+    /**
      * Returns the value of field id
      *
      * @return integer
@@ -216,6 +236,16 @@ class Pacientes extends \Phalcon\Mvc\Model
     }
 
     /**
+     * Returns the value of field historia_clinica
+     *
+     * @return string
+     */
+    public function getHistoriaClinica()
+    {
+        return $this->historia_clinica;
+    }
+
+    /**
      * Initialize method for model.
      */
     public function initialize()
@@ -270,7 +300,8 @@ class Pacientes extends \Phalcon\Mvc\Model
             'fecha_nacimiento' => 'fecha_nacimiento',
             'peso' => 'peso',
             'estatura' => 'estatura',
-            'nacionalidad' => 'nacionalidad'
+            'nacionalidad' => 'nacionalidad',
+            'historia_clinica' => 'historia_clinica'
         ];
     }
 

@@ -25,13 +25,13 @@
                         {% for paciente in pacientes %}
 
                             <tr>
-                                <td>{{ [paciente['nombre'], paciente['apellidoPaterno'], paciente['apellidoMaterno']] | join(' ') }}</td>
+                                <td>{{ [paciente['nombre'], paciente['apellido_paterno'], paciente['apellido_materno']] | join(' ') }}</td>
                                 <td>{{ paciente['telefono'] }}</td>
                                 <td>
-                                    <button class="btn btn-default btn-sm" title="Ver datos de paciente"><i class="fa fa-eye"></i></button>
-                                    <button class="btn btn-default btn-sm" title="Editar datos de paciente"><i class="fa fa-pencil"></i></button>
-                                    <button class="btn btn-default btn-sm" title="Modificar historia clínica"><i class="fa fa-file-o"></i></button>
-                                    <button class="btn btn-danger btn-sm" title="Eliminar paciente"><i class="fa fa-trash-o"></i></button>
+                                    <button class="btn btn-default btn-sm" title="Ver datos de paciente" onclick="verPaciente('{{ url('pacientes/ver/' ~ paciente['id']) }}')"><i class="fa fa-eye"></i></button>
+                                    <a class="btn btn-default btn-sm" href="{{ url('pacientes/editar/' ~ paciente['id']) }}" title="Editar datos de paciente"><i class="fa fa-pencil"></i></a>
+                                    <a class="btn btn-default btn-sm" href="{{ url('pacientes/historia/' ~ paciente['id']) }}" title="Modificar historia clínica"><i class="fa fa-file-o"></i></a>
+                                    <button class="btn btn-danger btn-sm" title="Eliminar paciente" onclick="eliminarPaciente('{{ url('pacientes/eliminar/' ~ paciente['id']) }}')"><i class="fa fa-trash-o"></i></button>
                                 </td>
                             </tr>
 

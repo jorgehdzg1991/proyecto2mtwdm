@@ -11,6 +11,13 @@
         {{ stylesheet_link('http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600') }}
 
         {{ resources.loadCssLinks(moduleCssLinks) }}
+
+        <style>
+            .dataTables_wrapper {
+                min-width: 650px !important;
+                padding: 5px;
+            }
+        </style>
     </head>
     <body class=" ">
         <!-- Aquí se renderiza el contenido de la aplicación -->
@@ -23,6 +30,8 @@
         {{ javascript_include('js/jquery.cookie.js') }}
         {{ javascript_include('js/jquery.nicescroll.min.js') }}
         {{ javascript_include('js/placeholdr.js') }}
+        {{ javascript_include('plugins/bootbox/bootbox.min.js') }}
+        {{ javascript_include('plugins/form-datepicker/js/bootstrap-datepicker.js') }}
 
         {{ resources.loadJavaScripts(moduleJavaScripts) }}
 

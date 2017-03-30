@@ -1,22 +1,40 @@
 <?php
 
+/**
+ * Controlador del módulo de Login
+ */
 class LoginController extends Phalcon\Mvc\Controller
 {
+    /**
+     * @var array Conjunto de archivos Css del módulo
+     */
     private $moduleCssLinks;
+    /**
+     * @var array Conjunto de archivos JavaScript del módulo
+     */
     private $moduleJavaScripts;
 
+    /**
+     * Inicializa el módulo
+     */
     protected function initialize()
     {
         $this->view->moduleCssLinks = [];
         $this->view->moduleJavaScripts = [];
 
-        $this->tag->setTitle('Login');
+        $this->tag->setTitle('MTWDM | Login');
     }
 
+    /**
+     * Acción de inicio. Muestra el formulario de inicio de sesión
+     */
     public function indexAction()
     {
     }
 
+    /**
+     * Acción de inicio de sesión. Verifica el usuario y contraseña de quien intenta iniciar sesión
+     */
     public function startAction()
     {
         $login = $this->request->getPost('login');
@@ -42,12 +60,9 @@ class LoginController extends Phalcon\Mvc\Controller
 
         $result = $this->modelsManager->executeQuery($sql);
 
-        if (!$result) {
+        if (!isset($result[0])) {
             $this->flash->error('Error de usuario o password');
-            $this->dispatcher->forward([
-                'controller' => 'login',
-                'action' => 'index'
-            ]);
+            $this->response->redirect('login/index');
 
             return;
         }
@@ -58,29 +73,33 @@ class LoginController extends Phalcon\Mvc\Controller
 
         $this->flash->success('Bienvenido al sistema');
 
-        $this->dispatcher->forward([
-            'controller' => 'index',
-            'action' => 'index'
-        ]);
+        $this->response->redirect('index');
     }
 
+    /**
+     * Termina la sesión en el servidor
+     */
     public function endAction()
     {
         $this->unsetSessionAuth();
 
         $this->flash->success('¡Hasta pronto!');
 
-        $this->dispatcher->forward([
-            'controller' => 'login',
-            'action' => 'index'
-        ]);
+        $this->response->redirect('login/index');
     }
 
+    /**
+     * Crea la variable de sesión 'auth' con los datos del usuario que inició en el sistema
+     * @param $auth array Datos de sesión del usuario
+     */
     private function setSessionAuth($auth)
     {
         $this->session->set('auth', $auth);
     }
 
+    /**
+     * Destruye la variable 'auth' de la sesión
+     */
     private function unsetSessionAuth()
     {
         if ($this->session->has('auth')) {
