@@ -39,19 +39,19 @@
                                 </tr>
                                 </thead>
                                 <tbody id="tblVinculados">
-                                {% for doctor_vinculado in doctores_vinculados %}
+                                <?php foreach ($doctores_vinculados as $doctor_vinculado) { ?>
 
                                     <tr>
-                                        <td>Dr. {{ [doctor_vinculado['nombre'], doctor_vinculado['apellido_paterno'], doctor_vinculado['apellido_materno']] | join(' ') }}</td>
-                                        <td>{{ doctor_vinculado['especialidad'] }}</td>
-                                        <td>{{ doctor_vinculado['telefono'] }}</td>
-                                        <td>{{ doctor_vinculado['correo'] }}</td>
+                                        <td>Dr. <?= join([$doctor_vinculado['nombre'], $doctor_vinculado['apellido_paterno'], $doctor_vinculado['apellido_materno']], ' ') ?></td>
+                                        <td><?= $doctor_vinculado['especialidad'] ?></td>
+                                        <td><?= $doctor_vinculado['telefono'] ?></td>
+                                        <td><?= $doctor_vinculado['correo'] ?></td>
                                         <td>
-                                            <a href="{{ url('contactos/desvincular/' ~ doctor_vinculado['id']) }}" class="btn btn-danger btn-sm" title="Desvincular contacto"><i class="fa fa-times-circle"></i></a>
+                                            <a href="<?= $this->url->get('contactos/desvincular/' . $doctor_vinculado['id']) ?>" class="btn btn-danger btn-sm" title="Desvincular contacto"><i class="fa fa-times-circle"></i></a>
                                         </td>
                                     </tr>
 
-                                {% endfor %}
+                                <?php } ?>
                                 </tbody>
                             </table>
                         </div>
@@ -74,19 +74,19 @@
                                 </tr>
                                 </thead>
                                 <tbody id="tblNoVinculados">
-                                {% for doctor in doctores %}
+                                <?php foreach ($doctores as $doctor) { ?>
 
                                     <tr>
-                                        <td>Dr. {{ [doctor['nombre'], doctor['apellido_paterno'], doctor['apellido_materno']] | join(' ') }}</td>
-                                        <td>{{ doctor['especialidad'] }}</td>
-                                        <td>{{ doctor['telefono'] }}</td>
-                                        <td>{{ doctor['correo'] }}</td>
+                                        <td>Dr. <?= join([$doctor['nombre'], $doctor['apellido_paterno'], $doctor['apellido_materno']], ' ') ?></td>
+                                        <td><?= $doctor['especialidad'] ?></td>
+                                        <td><?= $doctor['telefono'] ?></td>
+                                        <td><?= $doctor['correo'] ?></td>
                                         <td>
-                                            <a href="{{ url('contactos/vincular/' ~ doctor['id']) }}" class="btn btn-primary btn-sm" title="Vincular contacto"><i class="fa fa-plus-circle"></i></a>
+                                            <a href="<?= $this->url->get('contactos/vincular/' . $doctor['id']) ?>" class="btn btn-primary btn-sm" title="Vincular contacto"><i class="fa fa-plus-circle"></i></a>
                                         </td>
                                     </tr>
 
-                                {% endfor %}
+                                <?php } ?>
                                 </tbody>
                             </table>
                         </div>

@@ -12,6 +12,9 @@
                 <h4>Agenda de pacientes</h4>
             </div>
             <div class="panel-body">
+                <div class="alert alert-info alerta-visibilidad">
+                    <i class="fa fa-info"></i> Recorrer tabla a la derecha para visualizar las acciones
+                </div>
                 <div class="table-responsive">
                     <table class="table table-striped datatables">
                         <thead>

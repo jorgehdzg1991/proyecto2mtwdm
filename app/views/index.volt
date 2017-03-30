@@ -13,9 +13,19 @@
         {{ resources.loadCssLinks(moduleCssLinks) }}
 
         <style>
-            .dataTables_wrapper {
-                min-width: 650px !important;
-                padding: 5px;
+            .alerta-visibilidad {
+                display: none;
+            }
+
+            @media screen and (max-width:992px) {
+                .dataTables_wrapper {
+                    min-width: 650px !important;
+                    padding: 5px;
+                }
+
+                .alerta-visibilidad {
+                    display: block;
+                }
             }
         </style>
     </head>
