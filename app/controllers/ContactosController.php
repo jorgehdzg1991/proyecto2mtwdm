@@ -37,6 +37,62 @@ class ContactosController extends SystemControllerBase
         $this->view->doctores = $doctores;
     }
 
+    function vervinculadosAction() {
+        $this->view->disable();
+        echo json_encode($this->buscarDoctoresVinculados());
+    }
+
+    function vernovinculadosAction() {
+        $this->view->disable();
+        echo json_encode($this->buscarTodosDoctores());
+    }
+
+    function vincularAction($id = null) {
+        if (empty($id)) {
+            $this->flash->error('No se recibieron datos de vinculación con el doctor seleccionado. Intente nuevamente.');
+            $this->response->redirect('contactos');
+            return;
+        }
+
+        $vinculacion = new CarteraColaboradores();
+        $vinculacion->setDoctoresId($this->auth['id']);
+        $vinculacion->setColaboradoresId($id);
+
+        if (!$vinculacion->save()) {
+            $this->flash->error('No pudo realizarse la vinculación debido a un error. Intente nuevamente.');
+        } else {
+            $this->flash->success('Contacto vinculado correctamente.');
+        }
+
+        $this->response->redirect('contactos');
+    }
+
+    function desvincularAction($id = null) {
+        if (empty($id)) {
+            $this->flash->error('No se recibieron datos de desvinculación. Intente nuevamente.');
+            $this->response->redirect('contactos');
+            return;
+        }
+
+        $vinculacion = CarteraColaboradores::findFirst("colaboradores_id = $id AND estatus = 1");
+
+        if (!$vinculacion) {
+            $this->flash->error('No se pudo encontrar el contacto vinculado.');
+            $this->response->redirect('contactos');
+            return;
+        }
+
+        $vinculacion->setEstatus(0);
+
+        if (!$vinculacion->save()) {
+            $this->flash->error('No pudo realizarse la desvinculación debido a un error. Intente nuevamente.');
+        } else {
+            $this->flash->success('Contacto desvinculado correctamente.');
+        }
+
+        $this->response->redirect('contactos');
+    }
+
     private function buscarDoctoresVinculados()
     {
         $sql = "
