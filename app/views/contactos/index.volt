@@ -47,7 +47,7 @@
                                         <td>{{ doctor_vinculado['telefono'] }}</td>
                                         <td>{{ doctor_vinculado['correo'] }}</td>
                                         <td>
-                                            <a href="{{ url('contactos/desvincular/' ~ doctor_vinculado['id']) }}" class="btn btn-danger btn-sm" title="Desvincular contacto"><i class="fa fa-times-circle"></i></a>
+                                            <button onclick="eliminarVinculo('{{ url('contactos/desvincular/' ~ doctor_vinculado['id']) }}')" class="btn btn-danger btn-sm" title="Desvincular contacto"><i class="fa fa-times-circle"></i></button>
                                         </td>
                                     </tr>
 

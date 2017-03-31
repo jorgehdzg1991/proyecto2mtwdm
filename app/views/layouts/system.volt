@@ -58,7 +58,7 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-12">{{ flash.output() }}</div>
+                    <div class="col-xs-12" id="area-alertas">{{ flash.output() }}</div>
                 </div>
                 {{ content() }}
             </div>

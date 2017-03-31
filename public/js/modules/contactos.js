@@ -1,3 +1,24 @@
+function eliminarVinculo(link) {
+    bootbox.confirm({
+        message: '¿Estas seguro de eliminar el contacto?',
+        buttons: {
+            confirm: {
+                label: 'Si, borralo',
+                className: 'btn-danger'
+            },
+            cancel: {
+                label: 'Ahora no joven',
+                className: 'btn-default'
+            }
+        },
+        callback: function (result) {
+            if (result === true) {
+                window.location.href = link;
+            }
+        }
+    });
+}
+
 $(document).ready(function () {
     $('.datatables').dataTable({
         "sDom": "<'row'<'col-xs-6'l><'col-xs-6'f>r>t<'row'<'col-xs-6'i><'col-xs-6'p>>",

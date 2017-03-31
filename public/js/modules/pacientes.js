@@ -8,12 +8,12 @@ function verPaciente(url) {
                 cargarInfoPaciente(response.data);
                 $('body').toggleClass('show-rightbar');
             } else {
-                bootbox.alert('No se encontró la información del paciente');
+                $('#area-alertas').html('<div class="alert alert-error">No se encontró la información del paciente</div>')
             }
         },
         error: function (error, status, xhr) {
             console.log(xhr);
-            bootbox.alert('Ha ocurrido un error al cargar la información, intente nuevamente.');
+            $('#area-alertas').html('<div class="alert alert-error">Ha ocurrido un error al cargar la información, intente nuevamente.</div>')
         }
     });
 }
@@ -49,8 +49,23 @@ function construirFormGroupDeshabilitado(label, valor) {
 }
 
 function eliminarPaciente(url) {
-    bootbox.confirm('¿Estas seguro de eliminar el paciente?', function () {
-        window.location.href = url;
+    bootbox.confirm({
+        message: '¿Estas seguro de eliminar el paciente?',
+        buttons: {
+            confirm: {
+                label: 'Si, borralo',
+                className: 'btn-danger'
+            },
+            cancel: {
+                label: 'Ahora no joven',
+                className: 'btn-default'
+            }
+        },
+        callback: function (result) {
+            if (result === true) {
+                window.location.href = url;
+            }
+        }
     });
 }
 
